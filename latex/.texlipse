@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Tue Feb 11 12:08:29 CET 2014
+markTmpDer=true
+builderNum=2
+outputDir=out
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=oop_av1.tex
+outputFile=oop_av1.pdf
+langSpell=en
+markDer=true
+srcDir=

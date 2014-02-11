@@ -1,0 +1,38 @@
+\documentclass{beamer}
+\usetheme{FINKI}
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{listings}
+\renewcommand\mathfamilydefault{\rmdefault}
+%\renewcommand*\ttdefault{lcmtt}
+\usepackage{tikz,lipsum}
+\usetikzlibrary{shapes.callouts,decorations.pathmorphing}
+
+
+\pdfinfo
+{
+  /Title       (NRS)
+  /Creator     (TeX)
+  /Author      (Tomche Delev)
+}
+
+\title[АВ5]{Аудиториски вежби 5}
+\subtitle{Динамичка алокација на меморија, композиција и наследување}
+\author{Напреден развој на софтвер}
+\date{}
+\pgfdeclareimage[width=0.6\paperwidth]{finki_logo}{finki_name}
+\titlegraphic{\pgfuseimage{finki_logo}}
+
+\input{code_style_tiny.tex}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+\input{sections.tex}
+\input{nrs_av5.main.tex}
+\input{end_frame.tex}
+\end{document}

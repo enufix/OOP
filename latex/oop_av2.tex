@@ -1,0 +1,35 @@
+\documentclass{beamer}
+\usetheme{FINKI}
+\usepackage{thumbpdf}
+\usepackage{wasysym}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{listings}
+\renewcommand\mathfamilydefault{\rmdefault}
+%\renewcommand*\ttdefault{lcmtt}
+
+\pdfinfo
+{
+  /Title       (OOP)
+  /Creator     (TeX)
+  /Author      (Tomche Delev)
+}
+
+\title[АВ2]{Аудиториски вежби 2}
+\subtitle{Вовед во C++}
+\author{Објектно ориентирано програмирање}
+\date{}
+\pgfdeclareimage[width=0.6\paperwidth]{finki_logo}{finki_name}
+\titlegraphic{\pgfuseimage{finki_logo}}
+
+\input{code_style_tiny.tex}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+\input{sections.tex}
+\input{oop_av2.main.tex}
+\input{end_frame.tex}
+\end{document}
