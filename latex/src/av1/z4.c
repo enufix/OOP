@@ -1,26 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 
-struct kandidat {
-	char ime[15];
-	char prezime[20];
-	int index;
-	int bodovi;
+struct student {
+	char first_name[15];
+	char last__name[20];
+	int number;
+	int points;
 };
 
 void norm(char *s) {
-	//Prva bukva golema, ostanatite mali
+	// First letter uppercase, others lowercase
 	*s = toupper(*s);
 	while (*(++s) != '\0')
 		*s = tolower(*s);
 }
 
-void sort(struct kandidat a[], int n) {
+void sort(struct student a[], int n) {
 	int i, j;
-	struct kandidat s;
+	struct student s;
 	for (i = 0; i < n; i++)
 		for (j = 0; j < n - i - 1; j++)
-			if (a[j].bodovi < a[j + 1].bodovi) {
+			if (a[j].points < a[j + 1].points) {
 				s = a[j];
 				a[j] = a[j + 1];
 				a[j + 1] = s;
@@ -28,32 +28,25 @@ void sort(struct kandidat a[], int n) {
 }
 
 int main() {
-	struct kandidat st[50];
+	struct student st[50];
 	int i, n;
-	printf("Vnesete broj na studenti: ");
 	scanf("%d", &n);
-	for (i = 0; i < n; ++i) {
-		printf("Nov student:\n");
-		printf("Ime: ");
-		scanf("%s", &st[i].ime);
-		printf("Prezime: ");
-		scanf("%s", &st[i].prezime);
-		printf("Indeks: ");
-		scanf("%d", &st[i].index);
-		printf("Poeni (z1 z2 z3 z4): ");
+	for (i = 0; i < n; ++i) {		
+		scanf("%s", &st[i].first_name);		
+		scanf("%s", &st[i].last__name);		
+		scanf("%d", &st[i].number);		
 		int j, zadaca;
-		st[i].bodovi = 0;
+		st[i].points = 0;
 		for(j = 0; j < 4; j++) {
 			scanf("%d", &zadaca);
-			st[i].bodovi += zadaca;
+			st[i].points += zadaca;
 		}
-		norm(st[i].ime);
-		norm(st[i].prezime);
+		norm(st[i].first_name);
+		norm(st[i].last__name);
 	}
 	sort(st, n);
 	for (i = 0; i < n; i++) {
-		printf("%d. %s %s\t%d\t%d\n", i + 1, st[i].ime, st[i].prezime, st[i].index, st[i].bodovi);
+		printf("%d. %s %s\t%d\t%d\n", i + 1, st[i].first_name, st[i].last__name, st[i].number, st[i].points);
 	}
 	return 0;
 }
-

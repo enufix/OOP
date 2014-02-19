@@ -1,54 +1,44 @@
 #include<stdio.h>
 
-typedef struct grad {
-	char ime[30];
-	long brZiteli;
-} grad;
+typedef struct city {
+	char name[30];
+	long population;
+} city;
 
-typedef struct pretsedatel {
-	char ime[20];
-	char prezime[20];
-	char partija[20];
-} pret;
+typedef struct president {
+	char name[20];
+	char party[20];
+} pres;
 
-typedef struct drzava {
-	char ime[30];
-	pret pretsedatel;
-	long brZiteli;
-	grad glaven;
-} drzava;
+typedef struct country {
+	char name[30];
+	pres president;
+	long population;
+	city capital;
+} country;
 
 int main() {
-	drzava d[20];
+	country d[20];
 	int n, i, maxi, max;
-	printf("Vnesete broj na drzavi:\n");
 	scanf("%d", &n);
 	for (i = 0; i < n; ++i) {
-		printf("Drzava: ");
-		scanf("%s", &d[i].ime);
-		printf("Pretsedatel:\n");
-		printf("Ime: ");
-		scanf("%s", &d[i].pretsedatel.ime);
-		printf("Prezime: ");
-		scanf("%s", &d[i].pretsedatel.prezime);
-		printf("Partija: ");
-		scanf("%s", &d[i].pretsedatel.partija);
-		printf("Broj na ziteli: ");
-		scanf("%d", &d[i].brZiteli);
-		printf("Glaven grad: ");
-		scanf("%s", &d[i].glaven.ime);
-		printf("Ziteli vo gradot: ");
-		scanf("%d", &d[i].glaven.brZiteli);
+		scanf("%s", &d[i].name);
+		printf("president:\n");
+		scanf("%s", &d[i].president.name);
+		scanf("%s", &d[i].president.party);
+		scanf("%d", &d[i].population);
+		scanf("%s", &d[i].capital.name);
+		scanf("%d", &d[i].capital.population);
 	}
 	maxi = 0;
-	max = d[maxi].glaven.brZiteli;
+	max = d[maxi].capital.population;
 	for (i = 0; i < n; ++i)
-		if (d[i].glaven.brZiteli > max) {
-			max = d[i].glaven.brZiteli;
+		if (d[i].capital.population > max) {
+			max = d[i].capital.population;
 			maxi = i;
 		}
 	printf(
-			"Imeto na pretsedatelot na drzavata so najgolem glaven grad e: %s %s\n",
-			d[maxi].pretsedatel.ime, d[maxi].pretsedatel.prezime);
+			"Name of the president of the country with the largest capital is: %s\n",
+			d[maxi].president.name);
 	return 0;
 }

@@ -195,7 +195,7 @@ void Person::printperson() {
 int main() {
     Person Rakovoditel;
     //...fali inicijalizacija
-    Person.printperson();
+    Rakovoditel.printperson();
     return (0);
 }
 \end{lstlisting}
@@ -269,13 +269,13 @@ void printperson(Person const &p) {
 }
 // zemi gi podatocite za vraboteniot preku negoviot reden broj
 Person const &ZemiVraboten(int index) {
-... return (person[index]); // vrakja referenca
+... return (Vraboten[index]); // vrakja referenca
 }
 int main() {
     Person Rakovoditel;
     printperson(Rakovoditel); // nema referenca
     // promenlivata nema da se promeni vo funkcijata
-    printperson(getperson(5)); // se prenesuva referenca
+    printperson(ZemiVraboten(5)); // se prenesuva referenca
     return (0);
 }
 \end{lstlisting}

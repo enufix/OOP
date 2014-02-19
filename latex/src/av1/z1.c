@@ -1,27 +1,27 @@
 #include <stdio.h>
 
-struct datum {
-	int den;
-	int mesec;
-	int godina;
+struct date {
+	int day;
+	int month;
+	int year;
 };
 
-typedef struct datum datum;
+typedef struct date date;
 
-short sporedba(datum d1, datum d2) {
-	if (d1.den == d2.den && d1.mesec == d2.mesec && d1.godina == d2.godina)
+short compare(date d1, date d2) {
+	if (d1.day == d2.day && d1.month == d2.month && d1.year == d2.year)
 		return 0;
-	if (d1.godina > d2.godina)
+	if (d1.year > d2.year)
 		return 1;
-	else if (d1.godina < d2.godina)
+	else if (d1.year < d2.year)
 		return -1;
 	else {
-		if (d1.mesec > d2.mesec)
+		if (d1.month > d2.month)
 			return 1;
-		else if (d1.mesec < d2.mesec)
+		else if (d1.month < d2.month)
 			return -1;
 		else {
-			if (d1.den > d2.den)
+			if (d1.day > d2.day)
 				return 1;
 			else
 				return -1;
@@ -29,25 +29,25 @@ short sporedba(datum d1, datum d2) {
 	}
 }
 
-long razlika(datum d1, datum d2) {
-	long denovi;
-	denovi = d1.den - d2.den;
-	denovi += (d1.mesec - d2.mesec) * 30;
-	denovi += (d1.godina - d2.godina) * 360;
-	return denovi;
+long difference(date d1, date d2) {
+	long days;
+	days = d1.day - d2.day;
+	days += (d1.month - d2.month) * 30;
+	days += (d1.year - d2.year) * 360;
+	return days;
 }
 
 int main() {
-	datum d1 = { 14, 12, 1989 };
-	datum d2;
-	d2.den = 16;
-	d2.mesec = 12;
-	d2.godina = 1989;
-	if (sporedba(d1, d2) == 0)
-		printf("Datumite se isti.\n");
-	else if (sporedba(d1, d2) == 1)
-		printf("Razlikata pomegu datumite e %d dena.\n", razlika(d1, d2));
+	date d1 = { 14, 12, 1989 };
+	date d2;
+	d2.day = 16;
+	d2.month = 12;
+	d2.year = 1989;
+	if (compare(d1, d2) == 0)
+		printf("Dates are equal.\n");
+	else if (compare(d1, d2) == 1)
+		printf("Difference between dates is %d days.\n", difference(d1, d2));
 	else
-		printf("Razlikata pomegu datumite e %d dena.\n", razlika(d2, d1));
+		printf("Difference between dates is %d days.\n", difference(d2, d1));
 	return 0;
 }
