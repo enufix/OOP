@@ -2,15 +2,22 @@
 %%%%%%%%%% Content starts here %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[fragile,shrink=-50]{Дефинирање класа}
+\begin{frame}[fragile]{Дефинирање класа и објект}
+\begin{exampleblock}{Дефиниција на класа}
 \begin{lstlisting}
-class ime_na_klasata {
+class Ime_na_klasata {
 private:
     /* deklaracija na promenlivi i metodi koi ne se vidlivi nadvor od klasata */
 public:
     /* deklaracija na promenlivi i metodi koi se vidlivi nadvor od klasata */
 };
 \end{lstlisting}
+\end{exampleblock}
+\begin{exampleblock}{Инстанцирање објект}
+\begin{lstlisting}
+Ime_na_klasata ime_na_objektot;
+\end{lstlisting}
+\end{exampleblock}
 \end{frame}
 
 \begin{frame}[fragile,shrink=10]{Дефинирање класа}{Пример}
@@ -31,38 +38,46 @@ public:
 Да се напише класа за опишување на геометриско тело триаголник. Во класата да се
 напишат методи за пресметување на плоштината и периметарот на триаголникот.\\
 Потоа да се напише главна програма во која ќе се инстнацира еден објект од оваа
-класа со вредности за страните кои претходно ќе се прочитаат од тастатура. На
-овој објект да се повикат соодветните методи за пресметување на плоштината и
+класа со вредности за страните кои претходно ќе се прочитаат од стандарден влез.
+На овој објект да се повикат соодветните методи за пресметување на плоштината и
 периметарот.
 \end{frame}
 
-\begin{frame}[fragile]{Задача 1}{Решение}
-\lstinputlisting{src/av3/z1.cpp}
+\begin{frame}[fragile]{Задача 1}{Решение 1/2 (Класа)}
+\lstinputlisting[lastline=27]{src/av3/z1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Задача 1}{Решение 2/2 (main)}
+\lstinputlisting[firstline=28]{src/av3/z1.cpp}
 \end{frame}
 
 \begin{frame}{Задача 2}{Класа за вработен}
-Да се напише класа во која ќе се чуваат основни податоци за вработен (име,
-плата и работна позиција). Работната позиција може да биде вработен, директор
-или шеф.\\
-Напишете главна програма во која се внесуваат податоци за N вработени од
-тастатура, а потоа се пачати листа на вработените сортирани според висината на
+Да се напише класа во која ќе се чуваат основни податоци за вработен:
+\begin{itemize}
+  \item име
+  \item плата
+  \item работна позиција (работната позиција може да биде вработен, директор
+или шеф)
+\end{itemize}
+Напишете главна програма во која се читаат од стандарден влез податоци за N
+вработени, а потоа се пачати листа на вработените сортирани според висината на
 платата во опаѓачки редослед.
 \end{frame}
 
 \begin{frame}[fragile]{Задача 2}{Решение 1/4}
-\lstinputlisting[lastline=25]{src/av3/z2.cpp}
+\lstinputlisting[lastline=26]{src/av3/z2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Задача 2}{Решение 2/4}
-\lstinputlisting[firstline=26,lastline=46]{src/av3/z2.cpp}
+\lstinputlisting[firstline=28,lastline=46]{src/av3/z2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Задача 2}{Решение 3/4}
-\lstinputlisting[firstline=47,lastline=74]{src/av3/z2.cpp}
+\lstinputlisting[firstline=48,lastline=58]{src/av3/z2.cpp}
 \end{frame}
 
 \begin{frame}[fragile]{Задача 2}{Решение 4/4}
-\lstinputlisting[firstline=75]{src/av3/z2.cpp}
+\lstinputlisting[firstline=60]{src/av3/z2.cpp}
 \end{frame}
 
 \begin{frame}{Задача 3}{Класа за e-mail}
@@ -86,25 +101,25 @@ public:
 \lstinputlisting[firstline=53]{src/av3/z3.cpp}
 \end{frame}
 
-\begin{frame}[fragile]{Задача 4}{Класа за комплексни броеви}
-\lstinputlisting[lastline=21]{src/av3/z4.cpp}
-\end{frame}
+% \begin{frame}[fragile]{Задача 4}{Класа за комплексни броеви}
+% \lstinputlisting[lastline=21]{src/av3/z4.cpp}
+% \end{frame}
 
-\begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
-\texttt{+=, -=, *=, /=}}
-\lstinputlisting[firstline=22,lastline=43]{src/av3/z4.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
-\texttt{+, -, *, /}}
-\lstinputlisting[firstline=61,lastline=76]{src/av3/z4.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
-\texttt{<<, >>}}
-\lstinputlisting[firstline=44,lastline=59]{src/av3/z4.cpp}
-\end{frame}
-
-\begin{frame}[fragile]{Задача 4}{Главна функција}
-\lstinputlisting[firstline=77]{src/av3/z4.cpp}
-\end{frame}
+% \begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
+% \texttt{+=, -=, *=, /=}}
+% \lstinputlisting[firstline=22,lastline=43]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
+% \texttt{+, -, *, /}}
+% \lstinputlisting[firstline=61,lastline=76]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Задача 4}{Преоптоварување на оператори
+% \texttt{<<, >>}}
+% \lstinputlisting[firstline=44,lastline=59]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Задача 4}{Главна функција}
+% \lstinputlisting[firstline=77]{src/av3/z4.cpp}
+% \end{frame}

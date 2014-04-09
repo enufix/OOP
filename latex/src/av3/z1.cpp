@@ -1,25 +1,35 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
-class Triagolnik {
+
+class Triangle {
 private:
-	int a, b, c;
+    int a, b, c;
 public:
-	Triagolnik(int x, int y, int z) {
-		a = x;
-		b = y;
-		c = z;
-	}
-	~Triagolnik() {
-	}
-	int perimetar() {
-		return a + b + c;
-	}
+	// Constructor
+    Triangle(int x, int y, int z) {
+        a = x;
+        b = y;
+        c = z;
+    }
+    // Destructor
+    ~Triangle() {
+    }
+
+    int permeter() {
+        return a + b + c;
+    }
+
+    float area() {
+    	float s = (a + b + c) / 2;
+    	return sqrt(s * (s - a) * (s - b) * (s - c));
+    }
 };
 int main() {
-	int p, q, r;
-	cout << "Vnesi tri strani:" << endl;
-	cin >> p >> q >> r;
-	Triagolnik t(p, q, r);
-	cout << "Perimetar na triagolnikot:" << t.perimetar() << endl;
-	return 0;
+    int a, b, c;
+	cin >> a >> b >> c;
+    Triangle t(a, b, c);
+    cout << "Area: " << t.area() << endl;
+    cout << "Permeter: " << t.permeter() << endl;
+    return 0;
 }

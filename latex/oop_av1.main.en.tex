@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Problem 1}
+Write a programm that will compare two dates (day, month, year) and will compute
+the difference in days between them. Implement the computations in separate
+functions.\\
+\emph{Define a struct for date} \texttt{date}.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/3}
+\lstinputlisting[lastline=9]{src/av1/z1.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/3}
+\lstinputlisting[firstline=11,lastline=30]{src/av1/z1.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 3/3}
+\lstinputlisting[firstline=32]{src/av1/z1.c}
+\end{frame}
+
+\begin{frame}{Problem 2}
+Write a program that will comptute the vector and the scalar product of two
+vectors. Vectors are represented with coordinates in threedimensional
+Cartesian coordinate system. Compute the products in separate functions.\\
+\emph{Define a struct for vector named} \texttt{vector}.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 1/2}
+\lstinputlisting[lastline=21]{src/av1/z2.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/2}
+\lstinputlisting[firstline=23]{src/av1/z2.c}
+\end{frame}
+
+\begin{frame}{Problem 3}
+Write a struct for representing complex numbers. Then implement functions for
+addition, substruction and multiplication of two complex numbers. Test the
+functions in a main program where you read two complex numbers from standard
+input.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 1/3}
+\lstinputlisting[lastline=20]{src/av1/z3.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 2/3}
+\lstinputlisting[firstline=22,lastline=33]{src/av1/z3.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 3/3}
+\lstinputlisting[firstline=35]{src/av1/z3.c}
+\end{frame}
+
+\begin{frame}{Problem 4}
+Read from standard input data for unknown number of students. Each row of the
+data is in following format:
+\begin{itemize}
+  \item first name
+  \item last name
+  \item number (format xxyzzzz)
+  \item four numbers (points for each problem)
+\end{itemize}         
+     separated with tab space.\\
+Write a program that will print list of students, where each row will have: last
+name, first name, number, and total points sorted by the number of points. BTW
+the names should be printed with first capital letter.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 4}{Solution 1/3}
+\lstinputlisting[lastline=16]{src/av1/z4.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 4}{Solution 2/3}
+\lstinputlisting[firstline=18,lastline=28]{src/av1/z4.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 4}{Solution 3/3}
+\lstinputlisting[firstline=30]{src/av1/z4.c}
+\end{frame}
+
+
+\begin{frame}{Problem 5}
+Write a program that will read from standard input data for countries and will
+print on the standard output the name of the president of the country whose
+capital has largest population.
+\begin{itemize}
+  \item Data for country: name, president, capital and population
+  \item Data for city: name and population
+  \item Data for president: name, political party
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 5}{Solution 1/2}
+\lstinputlisting[lastline=19]{src/av1/z5.c}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 5}{Solution 2/2}
+\lstinputlisting[firstline=20]{src/av1/z5.c}
+\end{frame}
+
+\begin{frame}{Homework}
+Modify problem 4 so the struct for student has an array of subjects (not more
+than 10) with grades from exams. Write a program that will print list of
+students sorted by their avarage grade in descending order. Data for the subject
+is: name of the subject and grade.
+\end{frame}

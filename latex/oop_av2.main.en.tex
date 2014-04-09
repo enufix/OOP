@@ -1,0 +1,548 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\begin{frame}{Introduction}
+\begin{itemize}
+  \item C++ includes many characteristics of the C programming language enriched
+  with object-oriented flavour (OOP)
+\item C++ is developed at Bell laboratories and at the begining was called ``С
+with classes''
+\item The name С++ is increment of C (++) and this means that C++ is extended C
+\item C++ compiler can be used to compile C programs
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Input/Output streams in C++ \texttt{<iostream>}}
+In C++ to work with input/output streams instead of functions \texttt{printf}
+and \texttt{scanf} we use the expressions \texttt{cout <<} and \texttt{cin >>}.
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+printf("Enter new value: ");
+scanf("%d", &value);
+printf("The new value is: %d\n", value);
+\end{lstlisting}
+in С++ is:
+\begin{lstlisting}
+cout << "Enter new value: ";
+cin >> value;
+cout << "The new value is: " << vred << '\n';
+\end{lstlisting}
+Therefore it's recommended to replace '${\backslash n}$' with '\texttt{endl}':
+\begin{lstlisting}
+cout << "Novata vrednost e: " << vred << endl;
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Input/Output streams in C++ \texttt{<iostream>}}
+To use input/output streams in C++ you should include the header file
+\texttt{<iostream>}
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter your age: ";
+    int myAge;
+    cin >> myAge;
+    cout << "Enter your frined's age: ";
+    int friendsAge;
+    cin >> friendsAge;
+    if (myAge > friendsAge)
+        cout << "You are older.\n";
+    else if (myAge < friendsAge)
+        cout << "Your friend is older.\n";
+    else
+        cout << "You both are the same age.\n";
+    return 0;
+}
+\end{lstlisting}
+
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Declaration of variables in C++}
+The variables in C++ can be declared anywhere in the programm until their
+declaration is before the usage.
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+for(int i = 0;  i < 5; i++) 
+    cout << i << endl;
+\end{lstlisting}
+\end{exampleblock}
+The scope of the local variables begins with the declaration and ends at the end
+of the block \texttt{\}}. The declration can be done in the
+conditions or in the loop expressions \texttt{while}, \texttt{do/while},
+\texttt{for} or \texttt{if}.
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{inline} functions}
+\begin{scriptsize}
+Each standard call of function consumes additional time in the process of
+calling the function. In C++ while defining small and simple function can be
+used the keyword \texttt{inline}, so each call of this function can be
+replaced with the body of the function, so the additional overhead of calling
+the function will be lost.
+\end{scriptsize}
+\begin{exampleblock}{Example function for computing volume of cube}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+inline float cube(const float s) {
+    return s * s * s;
+}
+int main() {
+    float a;
+    cin >> a;
+    cout << "Volume of the cube with side " << a << " is: " << cube(a)
+            << endl;
+    return 0;
+}
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Additional keywords in C++}
+\begin{center}
+    \begin{tabular}{l l l}
+        \texttt{asm} & \texttt{explicit} & \texttt{operator}  \\
+        \texttt{catch} & \texttt{friend} & \texttt{private} \\
+        \texttt{class} & \texttt{inline} & \texttt{protected} \\ 
+        \texttt{const\_cast} & \texttt{mutable} & \texttt{public} \\ 
+        \texttt{delete} & \texttt{new} & \texttt{reinterpret\_cast} \\
+        \texttt{dynamic\_cast} & \texttt{namespace} & \texttt{static\_cast} \\ 
+        \texttt{template} & \texttt{throw} & \texttt{using} \\
+        \texttt{this} & \texttt{try} & \texttt{virtual}
+    \end{tabular}
+\end{center}    
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{typedef}}
+Using \texttt{typedef} is premitted, but not nessesery in defining structs,
+unions or enums (\texttt{enum}) in C++.
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+struct Person {
+    char name[80], address[90];
+    double sallary;
+};
+int main() {
+    Person employee[50]; // array of Persons
+    Person manager;
+    manager.name = "Alexander";
+    cout << "Name of the manager is " << manager.name << endl;
+    return 0;
+}
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\section{Functions as struct members}
+
+\begin{frame}[fragile]{Functions as struct members}{1/3}
+C++ allows defining functions as part of some struct.
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+struct Person {
+    char name[80], address[80];
+    // declaration of function for printing the name and the address
+    void print();
+};
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Functions as struct members}{2/3}
+\begin{enumerate}
+  \item The function \texttt{print()} is only delcared; the body is in another
+  part of the programm.
+    \item The size of the struct (sizeof) is defined \textbf{only} from the size
+    of its member size. The declared function does not affect its size.    
+    \item The access of the function declared as part of some struct is
+    identical as the access of data member, i.e. by using the operator
+    \texttt{(.)}. When we have pointer to struct than we use \texttt{->}.
+    This syntax allows usage of same function name in many structs.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Functions as struct members}{3/3}
+Usage of function as struct member
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+struct Person {
+    char name[80], address[90];
+    double sallary;
+    void print();
+};
+void Person::print() {
+    cout << "Name of the employee is:" << name << " and his address is:"
+            << address << endl;
+}
+int main() {
+    Person manager;
+    manager.name = "Michael";
+    manager.address = "St. 5th avenue";
+    manager.print();
+    return 0;
+}
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\section{References}
+
+\begin{frame}[fragile]{References}{Definition and declaration} 
+Reference is new data type in C++ similar to the pointer type in C but more safe
+for usage.
+\begin{exampleblock}{Declaration}
+\begin{lstlisting}
+<Type> & <Name>
+\end{lstlisting}
+\end{exampleblock}
+
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+int A = 5;
+int& rA = &A;
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{References}{Differences and similarities with
+pointers} 
+References in C++ have these differences with pointers:
+\begin{enumerate}
+  \item Direct access to the reference after its declaration is not possible,
+  each access is actualy access to the variable/object it is referencing.
+  \item Once initialized it can not be dereferenced or refere to other
+  variable/object.
+  \item It can not be NULL (referencing nothing).
+  \item Once declared they must be initialized.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{References}{Usage}
+One of the most important usage is passing function arguments.
+\begin{exampleblock}{Example}
+\begin{lstlisting}
+int swap(int &a, int &b) {
+    a += b;
+    b = a - b;
+    a -= b;
+}
+int main() {
+    int x = 10;
+    int y = 15;
+    swap(x, y);
+    // x = 15, y = 10
+    return 0;
+}
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{References}{Example arguments struct reference}
+\begin{lstlisting}
+// declaration of struct
+struct Person {
+    char name[80], address[90];
+    double sallary;
+};
+Person employee[50]; // array of Person 
+// print accepts reference to Person struct
+void print(Person const &p) {
+    cout << "Name of the employee is: " << p.name << " and his address is: "
+            << p.address << endl;
+}
+// return data of the employee by his index
+Person const &getEmployee(int index) {
+... return (person[index]); // returns reference
+}
+int main() {
+    Person employee;
+    print(employee); // passing is same as is there was no reference
+    return (0);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Usage of \texttt{const} instead of \texttt{\#define}}
+By using \texttt{const} we specify that the value of the variable can not be
+changed. For instance in the following code segment, the expression of changing
+the value of the variable \texttt{ival = 4} will result in error.
+\begin{lstlisting}
+int main() {
+    int const ival = 3;
+    // int const initialized with value 3
+    ival = 4; // reports error message
+    return 0;
+}
+\end{lstlisting}
+In contrary to C, in C++ the variables that are defined as const can be used in
+array declarations.
+\begin{lstlisting}
+int const size = 20;
+char buffer[size]; // array of 20 chars
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Usage of \texttt{const} with pointers}
+\begin{lstlisting}
+char const *buf;
+\end{lstlisting}
+\texttt{buf} is pointer to chars that are defined as const, i.e. can not be
+changed, while the pointer \texttt{buf} can be changed. Therefore, buf++ is
+allowed, but *buf = 'а' is not allowed.\\
+Then the expression
+\begin{lstlisting}
+char *const buf;
+\end{lstlisting}
+defines constant pointer that can not be changed, but the data of type char that
+the pointers \texttt{buf} points can be changed.\\ 
+And finally,
+\begin{lstlisting}
+char const *const buf;
+\end{lstlisting}
+means that neither the pointer nor the data can not be changed.
+\end{frame}
+
+\begin{frame}[fragile]{Usage of const with pointers}
+Definiions and declarations where the keywork const is used are read beginning
+with the name of the variable (the function) to the type of the variable
+(function). Therefore, the last expression is read as ``\texttt{buf} is const
+pointer to const char''.
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main() {
+    char const *buf = "hello";
+    buf++; // accepted by compiler
+    *buf = 'u'; // not accepted, error
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\section{Namespaces}
+\begin{frame}[fragile]{Namespaces - \texttt{namespace}}{1/3}
+\texttt{namespace} are parts in the code where you can define and use (without
+conflicts or name collisions) entities (variables, functions, structs, etc.)
+with same names as other entities defined in other namespaces.\\
+Defining namespace
+\begin{lstlisting}
+namespace name_of_namespace {
+    // (region for declaration of entities)
+    // variables, functions, structs, classes
+    // other nested namespaces
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Namespaces - \texttt{namespace}}{2/3}
+Definition of namespace can not be in block (ex. function), but same namespaces
+can be declared on many places (\texttt{multiple namespace}). Then we say, the
+namespace is open.\\
+For example, if we have declaration of \texttt{namespace My\_space} во
+\texttt{prog1.cpp} and \texttt{prog2.cpp}, then they will be united in one
+namespace which contains all the entities from the two ``physical'' spaces.
+\begin{lstlisting}
+// vo prog1.cpp
+namespace My_space {
+    double cos(double argInDegrees) {
+    ... function body
+    }
+}
+// vo prog2.cpp
+namespace My_space {
+    double sin(double argInDegrees) {
+    ...function body
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Namespaces - \texttt{namespace}}{3/3}
+The namespace \texttt{My\_space} contains the definitions of both functions, 
+\texttt{sin()} and \texttt{cos()}. Instead of defining, entities can only be
+declared as in the following example:
+\begin{lstlisting}
+namespace My_space {
+    double cos(double degrees);
+    double sin(double degrees);
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Closed namespaces}
+Namespace can be defined without name; then it is anonimous (closed) i.e. the
+entities of this namespace can only be used in the program where it is
+defined.\\
+Accessing entities from namespace
+\begin{lstlisting}
+// namespace My_space is defined in the following header file:
+#include <My_space>
+int main() {
+    cout << "Cosinus od 60 stepeni e: " <<
+    My_space::cos(60) << endl;
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Closed namespaces}
+Definition of entity (ex. function) with same name as a standard function
+implicates that the standard function can not be used, but should be used with
+the \texttt{scope} operator as in the following example:\\
+Accessing functions with same name as functions from the standard name space in
+\texttt{\#include <iostream>}
+\begin{lstlisting}
+#include <cmath>
+namespace My_space {
+double cos(double argInDegrees) {
+    ...body function
+}
+using namespace std;
+int main() {
+    using Moj_prostor::cos;
+    ...
+    cout << cos(60) // using function from My_space::cos()
+    << ::cos(1.5) // using standard cos() function
+    << endl;
+    return (0);
+}
+\end{lstlisting}
+\end{frame}
+% 
+% \begin{frame}[fragile]{Usage of \texttt{using}}
+% The declaration using can be used in block, but 
+% Декларацијата using може да се користи во блок, меѓутоа треба да се внимава да
+% нсе дефинираат променливи со исти имиња како имињата на ентитетите од просторот
+% кој се декларира со \texttt{using}.
+% \begin{lstlisting}
+% #include <iostream>
+% using namespace std;
+% namespace Moj_prostor {
+% int vrednost = 1;
+% }
+% int main() {
+%     using Moj_prostor::vrednost;
+%     ...
+%     cout << value << endl; // ja koristi Moj_prostor::vrednost
+%     int vrednost; // error: value already defined.
+%     return (0);
+% }
+% \end{lstlisting}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Употреба на \texttt{using}}
+% За разлика од декларативно користење на \texttt{using} каде се наведува ентитетот или
+% листата на ентитети кои се преземаат од просторот, може да се употреби наредбата
+% using за импортирање на сите ентитети од соодветниот простор.
+% \begin{lstlisting}
+% using namespace Moj_prostor;
+% \end{lstlisting}
+% Напомена:\\
+% Ако \texttt{cos()} е дефинирана во \texttt{Moj\_prostor}, тогаш \texttt{Moj\_prostor::cos()}
+% ќе се повика ако употребиме \texttt{cos()}, односно стандардната \texttt{cos()}
+% ке се повика ако не постои дефиниција на \texttt{cos()} во \texttt{Moj\_prostor}.
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Вгнездени простори на имиња (nested namespaces)}
+% \begin{lstlisting}
+% namespace Moj_prostor {
+% namespace Virtual {
+% void *pointer;
+% }
+% }
+% \end{lstlisting}
+% Пристап до вгнезден ентитет може да се напише на следните начини:\\
+% 1. Со користење на scope операторот за целосна референца
+% \begin{lstlisting}
+% int main() {
+%     Moj_prostor::Virtual::pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% 
+% 2. Користење на \texttt{using}-декларација за \texttt{Moj\_prostor::Virtual}
+% \begin{lstlisting}
+% . . .
+% using Moj_prostor::Virtual;
+% int main() {
+%     Virtual::pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Вгнездени простори на имиња (nested namespaces)}
+% 3. Користење на \texttt{using}-декларација за \texttt{Moj\_prostor::Virtual::pointer}
+% \begin{lstlisting}
+% ...
+% using Moj_prostor::Virtual::pointer;
+% int main() {
+%     pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% 4. Користење на \texttt{using} – наредбата 
+% \begin{lstlisting}
+% using namespace Moj_prostor::Virtual;
+% int main() {
+%     pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Вгнездени простори на имиња (nested namespaces)}
+% Две одвоени \texttt{using}-наредби не се дозволени
+% \begin{lstlisting}
+% using namespace Moj_prostor;
+% using namespace Virtual;
+% int main() {
+%     pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% 5. Комбинација на \texttt{using}-наредба и \texttt{using}-деклрација
+% \begin{lstlisting}
+% using namespace Moj_prostor;
+% using Virtual::pointer;
+% int main() {
+%     pointer = 0;
+%     return (0);
+% }
+% \end{lstlisting}
+% \end{frame}
+
+\begin{frame}[fragile]{New casting syntax}
+In C we used the following casting syntax
+\begin{lstlisting}
+(typename)expression
+(float) nominator;
+\end{lstlisting}
+In C++ it's available new notation:
+\begin{lstlisting}
+typename(expression)
+float(nominator);
+\end{lstlisting}
+Also there are 4 new ways of casting in C++:
+\begin{enumerate}
+  \item \texttt{static\_cast<type>(expression)} - standard static casting
+  \item \texttt{const\_cast<type>(expression)} - used for modifying the type
+  of constants
+  \item \texttt{reintrepret\_cast<type>(expression)} - used to reinterpret the
+  information
+  \item \texttt{dynamic\_cast<type>(expression)} - polymorphism casting
+ 
+\end{enumerate}
+\end{frame}

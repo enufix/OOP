@@ -1,0 +1,59 @@
+\documentclass[11pt]{examdesign}
+\usepackage{ucs}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage{verbatim}
+\usepackage[ddmmyyyy]{datetime}
+\renewcommand{\dateseparator}{.}
+\SectionFont{\large\sffamily}
+\usepackage[margin=1.5cm]{geometry}
+%\Fullpages
+\ContinuousNumbering
+%\ShortKey
+\DefineAnswerWrapper{}{}
+\NumberOfVersions{1}
+\IncludeFromFile{oop_test1_code.tex}
+
+\def\namedata{Name: \hrulefill \\[5pt]
+ID: \hrulefill}
+
+\begin{examtop}
+{\parbox{.5\textwidth}{\textbf{\classdata} \\
+\examtype, 14.11.2013, Group: \fbox{\textsf{A}}\\ \emph{Each question
+has exactly \textbf{one correct} answer.}}
+\hfill
+\parbox{.45\textwidth}{\normalsize \namedata}}
+\end{examtop}
+
+\def\aftersectsep{0pt}
+\def\beforesectsep{0pt}
+\def\beforeinstsep{0pt}
+\def\afterinstsep{0pt}
+
+
+\class{\Large{Object oriented Programming}}
+\examname{Test 1}
+\begin{document}
+%\SectionPrefix{Дел \arabic{sectionindex}. \space}
+
+
+\begin{multiplechoice}[title={},suppressprefix=yes,rearrange=yes]
+\begin{question}
+Which of the given answers will make the following code valid:
+%\InsertChunk{c1}
+    \choice{add in class К: \texttt{friend ostream\& operator<<(ostream\& o, K
+    const\& k){return o<<k.a;}}}
+    \choice{add in class К: \texttt{ostream\& operator<<(ostream\& o, K const\& k){
+    return o<<k.a;}}}
+    \choice[!]{outside of class К add: \texttt{friend ostream\& operator<<(ostream\& o,K const\& k)
+{return o<<k.a;}}}
+    \choice{outside of class K add: \texttt{ostream\& operator<<(ostream\& o, K const\& k){return o<<k.a;}}}
+\end{question}
+
+
+
+\end{multiplechoice}
+
+\end{document}

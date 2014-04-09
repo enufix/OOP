@@ -1,0 +1,138 @@
+
+\begin{frame}{Problem 1}
+Define a class for complex numbers. Complex number is a number that can be
+expressed in the form $a + bi$, where $a$ and $b$ are real numbers and $i$ is
+the imaginary unit ($i^2 = -1$). Overload the the following operators:
+
+ \texttt{+, -, *, /, +=, -=, /=}.
+ 
+ Also implement the \texttt{<<} operator.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/3}
+\lstinputlisting[lastline=31]{src/av5/pe51.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/3}
+\lstinputlisting[firstline=33,lastline=69]{src/av5/pe51.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 3/3}
+\lstinputlisting[firstline=71]{src/av5/pe51.cpp}
+\end{frame}
+
+\begin{frame}{Problem 2}
+\begin{scriptsize}
+Implement class \textbf{Array} for onedimensional array of integers. The class
+should store the total capacity and current size. Use dynamic allocation of
+memory for storing the data. Implement the following operators:
+\begin{itemize}
+  \item operator [] for accessing and changing the value of element
+  \item operator += for adding new element in the array (if the capacity is
+  full increase the array for 100\%)
+\end{itemize}
+
+Implement \textbf{main} function where you will instaciate object from class
+Array and read N numbers (from SI). Then print the elements from the array, its
+capacity, and the total number of elements.
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 1/4}
+\lstinputlisting[lastline=25]{src/av5/pe52.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/4}
+\lstinputlisting[firstline=26,lastline=51]{src/av5/pe52.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 3/4}
+\lstinputlisting[firstline=53,lastline=79]{src/av5/pe52.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 4/4}
+\lstinputlisting[firstline=81]{src/av5/pe52.cpp}
+\end{frame}
+
+\begin{frame}{Problem 3}
+\begin{scriptsize}
+Write a class for \textbf{WebServer}. Each web server has:
+\begin{itemize}
+  \item name (max 30 chars)
+  \item list of web pages (dynamicly allocated array of objects from class
+  WebPage).
+\end{itemize}
+
+Each web page has:
+
+\begin{itemize}
+  \item url (max 100 chars)
+  \item content (dynamicly allocated array of chars).
+\end{itemize}
+
+For the class WebServer overload the following operators:
+
+\begin{itemize}
+  \item += adding new page on the server
+  \item -= removing web page from the server.
+\end{itemize}
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 1/6}
+\lstinputlisting[lastline=28]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 2/6}
+\lstinputlisting[firstline=30,lastline=43]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 3/6}
+\lstinputlisting[firstline=45,lastline=65]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 4/6}
+\lstinputlisting[firstline=66,lastline=87]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 5/6}
+\lstinputlisting[firstline=89,lastline=110]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 6/6}
+\lstinputlisting[firstline=112]{src/av5/pe53.cpp}
+\end{frame}
+
+\begin{frame}{Problem 4}
+\begin{scriptsize}
+Write a class for \textbf{Student}. Each student has:
+\begin{itemize}
+  \item name (dynamicly allocated char array)
+  \item average (decimal number)
+  \item year (int).
+\end{itemize}
+For the class implement:
+\begin{itemize}
+  \item constructors and destructors
+  \item operator++ increasing the year of the student
+  \item operator << for printing the info of the student
+  \item operator > for comparing two students by their average.
+\end{itemize}
+
+Then implement class \textbf{Group} with dynamic array of students. For this
+class implement:
+\begin{itemize}
+  \item constructrs and destructors
+  \item operator += adding new student in the group
+  \item operator ++ increasing the year of all the students in the group
+  \item operator << printing all the students
+  \item method \textbf{reward} that prints only the students with larger average
+  grade than 9.5.
+  \item method \textbf{highestAverage} that prints the highest average grade of
+  the group.
+\end{itemize}
+
+\end{scriptsize}
+\end{frame}

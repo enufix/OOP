@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Inheritance}
+
+\begin{frame}{Problem 1}
+\begin{scriptsize}
+Define a class for representing publication. For each publication there is
+information for year of publishing (integer) and for the name of publishing
+house (char[100]).
+
+From this class derive (public) a new class for book. For each book additionally
+there is number of pages.
+
+Also derive (protected) a new class for newspaper. For each newspaper there is a
+serial number.
+
+From class newspaper derive (private) class for daily newspaper. For each daily
+newspaper there is information for the day and month of publishing.
+
+Test the access to the data with various functions!
+
+\end{scriptsize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/5}
+\lstinputlisting[lastline=24]{src/av7/p1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/5}
+\lstinputlisting[firstline=25,lastline=42]{src/av7/p1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 3/5}
+\lstinputlisting[firstline=44,lastline=62]{src/av7/p1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 4/5}
+\lstinputlisting[firstline=63,lastline=75]{src/av7/p1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 5/5}
+\lstinputlisting[firstline=76]{src/av7/p1.cpp}
+\end{frame}
+
+\begin{frame}{Problem 2}
+\begin{scriptsize}
+Define a class for hotel reservation. For each hotel reservation is stored the
+number of days, number of persons, name for contact. The price for the
+reservation is 25 EUR per day per person.
+
+Define a function \texttt{getPrice()} that returns the price of the reservation.
+Define a function \texttt{getPrice(int advance)} that returns the price if the
+user pays advance.
+
+Derive a new class breakfast hotel reservation for reserving hotel room with
+breakfast. The price for breakfast for one person is 5 EUR per day. Override the
+respective function \texttt{getPrice(int advance)}. 
+
+\end{scriptsize}
+ 
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 1/4}
+\lstinputlisting[lastline=29]{src/av7/p2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/4}
+\lstinputlisting[firstline=31,lastline=46]{src/av7/p2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2 ++}
+\begin{scriptsize}
+Define a class Hotel with info about the name and the balance. In the class
+define a function:
+
+\texttt{int reserve(HotelReservation &hr, int advance);}
+
+With this function we should pay for hotel reservation. If the payment exceeds
+the needed amount, the function should return the change. The payment should add
+to the balance of the hotel.
+
+What will happen if the argument of HotelReservation is not reference?
+
+\end{scriptsize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Problem 2}{Solution 3/4}
+\lstinputlisting[firstline=48,lastline=67]{src/av7/p2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 4/4}
+\lstinputlisting[firstline=69]{src/av7/p2.cpp}
+\end{frame}
+
+\begin{frame}{Problem 3}
+\begin{scriptsize}
+Define abstract class for representing a geometric shape. Each geometric shape
+has height and base which can be different for each shape.
+
+Add the following functions in the class:
+
+\begin{itemize}
+  \item \texttt{print()} print the shape info
+  \item \texttt{volume()} the volume of the shape
+  \item \texttt{getHeight()} returns the height of the shape
+\end{itemize}
+
+From this class derive classes for cylinder, cone and cuboid. For the cylinder
+and cone, the information for the radius of the basis is stored and for the
+cuboid, lenght of sides a and b.
+\end{scriptsize}
+ 
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 1/4}
+\lstinputlisting[firstline=48,lastline=67]{src/av7/p3.cpp}
+\end{frame}
+
+\begin{frame}{Problem 3 ++}
+In \texttt{main} declare and initialize dynamically array of pointers to the
+class gemotric shape. From this array:
+
+\begin{enumerate}
+  \item Find the shape with largest volume, using the function: \texttt{void
+  largestShape(GemotricShape **array, int n)}
+  \item Find the number of geometric shapes that doesn't have basis circle using
+  the function: \texttt{double getRadius(GeometricShape *g);} this function
+  returns the radius of the basis of the shapes that have circle basis, and -1
+  otherwise.
+\end{enumerate}
+
+\end{frame}
+

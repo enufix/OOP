@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Defining class and object}
+\begin{exampleblock}{Difining class}
+\begin{lstlisting}
+class Class_name {
+private:
+    /* variables and methods not visible outside of class*/ 
+public:
+    /* variables and methods visible outside of class*/ 
+};
+\end{lstlisting}
+\end{exampleblock}
+\begin{exampleblock}{Instantiating object}
+\begin{lstlisting}
+Class_name object_name;
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile,shrink=10]{Defining class}{Example}
+\lstinputlisting{src/av3/ex1.cpp}
+\end{frame}
+
+\begin{frame}{Objects lifecycle}
+\begin{enumerate}
+  \item Constructor - special method of each class which is called always when
+  an object of the class is created (instantiated)
+  \item Destructor - special method of each class which is called to free
+  the memory that the instantiated object allocated
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Problem 1}{Triangle class}
+Write a class for geometric figure triangle. In the class implement methods for
+computing the area and perimeter of the triangle.\\
+Than write a main function where you will instantiate one object of this class
+with values read from SI. Call the methods of this object for computing area
+and perimeter.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/2 (class)}
+\lstinputlisting[lastline=27]{src/av3/z1.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/2 (main)}
+\lstinputlisting[firstline=28]{src/av3/z1.cpp}
+\end{frame}
+
+\begin{frame}{Problem 2}{Employee class}
+Write a class that will keep data for one employee:
+\begin{itemize}
+  \item name
+  \item sallary
+  \item position (position can be employee, manager, owner)
+\end{itemize}
+Write a main function where from SI you will read data for N employees, and then
+print a list of employees sorted in descending order by the sallary.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 1/4}
+\lstinputlisting[lastline=26]{src/av3/z2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/4}
+\lstinputlisting[firstline=28,lastline=46]{src/av3/z2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 3/4}
+\lstinputlisting[firstline=48,lastline=58]{src/av3/z2.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 4/4}
+\lstinputlisting[firstline=60]{src/av3/z2.cpp}
+\end{frame}
+
+\begin{frame}{Problem 3}{E-mail class}
+Write a class that describes an e-mail message. The class should implement
+method for showing the contents of the message on the screen.\\
+Then write a main function where the parameters of the message are read from SI
+and an object of this class is instantiated. Then call the method for printing
+the message. The validity of the e-mail address should be checked the existance
+of the @ character.
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 1/4}
+\lstinputlisting[lastline=24]{src/av3/z3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 2/3}
+\lstinputlisting[firstline=25,lastline=52]{src/av3/z3.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 3/3}
+\lstinputlisting[firstline=53]{src/av3/z3.cpp}
+\end{frame}
+
+% \begin{frame}[fragile]{Problem 4}{Класа за комплексни броеви}
+% \lstinputlisting[lastline=21]{src/av3/z4.cpp}
+% \end{frame}
+
+% \begin{frame}[fragile]{Problem 4}{Преоптоварување на оператори
+% \texttt{+=, -=, *=, /=}}
+% \lstinputlisting[firstline=22,lastline=43]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Problem 4}{Преоптоварување на оператори
+% \texttt{+, -, *, /}}
+% \lstinputlisting[firstline=61,lastline=76]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Problem 4}{Преоптоварување на оператори
+% \texttt{<<, >>}}
+% \lstinputlisting[firstline=44,lastline=59]{src/av3/z4.cpp}
+% \end{frame}
+% 
+% \begin{frame}[fragile]{Problem 4}{Главна функција}
+% \lstinputlisting[firstline=77]{src/av3/z4.cpp}
+% \end{frame}

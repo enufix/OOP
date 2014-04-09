@@ -1,0 +1,85 @@
+
+\begin{frame}{Problem 1}
+\begin{scriptsize}
+Define a class \texttt{Boy} that keeps information for name, surname and years.
+Define the needed constructors and method for printing in format:
+\\Boy: [Name] [Surname] [Years].
+
+Define a class \texttt{Girl} with the same attributes as Boy but with different
+printing format:
+\\Girl: [Name] [Surname] [Years].
+
+Define a class \texttt{Date} that contains one Girl and one Boy. Implement the
+function \texttt{print()} that will print the info of the date in the following
+format:
+\\Date: Boy: [Name] [Surname] [Years], Girl: [Name] [Surname] [Years].
+
+Write a function \texttt{areMatch()} that will return true if their age
+difference is less than 10 and the sum of the length of their names is even
+number, otherwise false.
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/3}
+\lstinputlisting[lastline=32]{src/av4/p41.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/3}
+\lstinputlisting[firstline=34,lastline=52]{src/av4/p41.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 3/3}
+\lstinputlisting[firstline=54]{src/av4/p41.cpp}
+\end{frame}
+
+
+\begin{frame}{Problem 2}
+\begin{scriptsize}
+Define a class \texttt{Team} that keeps information about the name, year formed
+and the host city. Define a class \texttt{Game} that contains info for the home
+and guest teams (objects from class \texttt{Team}), goals scored by the home
+team, and goals scored by the guest team.
+
+Define separate function that accepts as arguments two objects from the class
+\texttt{Game} and checks if the second game is return match (the both teams are
+the same with reverse order). The the both games are return match, than should
+return the team that is winner on agregate, otherwise should print message that
+the games are not return match and return NULL.
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 1/3}
+\lstinputlisting[lastline=26]{src/av4/p42.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/3}
+\lstinputlisting[firstline=28, lastline=58]{src/av4/p42.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 3/3}
+\lstinputlisting[firstline=59]{src/av4/p42.cpp}
+\end{frame}
+
+\begin{frame}{Problem 3}
+\begin{scriptsize}
+Define a class \texttt{Date} that will keep day, month and year (int). Than
+implement a class \texttt{Employee} that has name (max 20 chars), sallary and
+date of birth (object from class Date). Implement two functions that accept
+arguments array of Employee objects and their number. First function should
+return the employee with largest sallary, and the second one should return the
+youngest employee.
+
+Write a main function that will test these classes and functions.
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3}{Solution 1/3}
+\lstinputlisting[lastline=25]{src/av4/p43.cpp}
+\end{frame}
+\begin{frame}[fragile]{Problem 3}{Solution 2/3}
+\lstinputlisting[firstline=27,lastline=51]{src/av4/p43.cpp}
+\end{frame}
+\begin{frame}[fragile]{Problem 3}{Solution 3/3}
+\lstinputlisting[firstline=54]{src/av4/p43.cpp}
+\end{frame}

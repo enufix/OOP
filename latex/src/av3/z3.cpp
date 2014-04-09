@@ -42,7 +42,7 @@ public:
 	const char* getFrom() { return from; }
 	const char* getSubject() { return subject; }
 	const char* getBody() { return body; }
-	void pecati() {
+	void print() {
 		cout << "To: " << to << endl;
 		cout << "From: " << from << endl;
 		cout << "Subject: " << subject << endl;
@@ -52,20 +52,20 @@ public:
 bool checkEmail(char* address);
 int main() {
 	char to[100], from[100], subject[200], body[1000];
-	cout << "Vnesi do kogo e porakata: " << endl;
+	cout << "To: " << endl;
 	cin >> to;
 	if (checkEmail(to)) {
-		cout << "Vnesi od kogo e porakata: " << endl;
+		cout << "From: " << endl;
 		cin >> from;
-		cout << "Vnesi naslov: " << endl;
+		cout << "Subject: " << endl;
 		cin >> subject;
-		cout << "Vnesi sodrzina: " << endl;
+		cout << "Body: " << endl;
 		cin >> body;
 		EMail poraka(to, from, subject, body);
-		cout << "Isprateno:" << endl;
-		poraka.pecati();
+		cout << "Sent:" << endl;
+		poraka.print();
 	} else {
-		cout << "Pogresna adresa za isprakjanje!" << endl;
+		cout << "Invalid email address!" << endl;
 	}
 	return 0;
 }
