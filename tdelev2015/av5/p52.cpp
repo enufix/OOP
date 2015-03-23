@@ -17,12 +17,7 @@ public:
 
 	// copy constructor
 	Array(const Array &x) {
-		a = new int[x.size];
-		size = x.size;
-		count = x.count;
-		for (int i = 0; i < size; ++i) {
-			a[i] = x.a[i];
-		}
+		copy(x);
 	}
 
 	// destructor
@@ -34,13 +29,17 @@ public:
 	Array& operator=(const Array &x) {
 		if (this == &x) return *this;
 		delete [] a;
+		copy(x);
+		return *this;
+	}
+
+	void copy(const Array &x) {
 		a = new int[x.size];
 		size = x.size;
 		count = x.count;
 		for (int i = 0; i < size; ++i) {
 			a[i] = x.a[i];
 		}
-		return *this;
 	}
 
 	void add(int x) {
