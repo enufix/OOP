@@ -154,4 +154,4 @@ int main() {
   cout << v.vkupnoOdAvtor(avtor) << endl;
   //delete [] s;
   return 0;
-}
+}	
