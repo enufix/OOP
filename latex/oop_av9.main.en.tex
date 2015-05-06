@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Problem 1}{Part 1}
+Model a base class \texttt{PaymentCard}, and two derived classes
+\texttt{CreaditCard} and \texttt{DebitCard}. Each card is described with its id
+number and the current balance.
+
+When paying with debit cards, on each amount there is a discount of 5\% for ALL
+users and this percent cannot be changed.
+
+When paying with credit cards, on each amount there is discount of 10\% if the
+limit is over 6,000, and 3\% otherwise. The 10\% limit is the same for all users
+but it can be changed from state bank.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 1/5}
+\lstinputlisting[lastline=26]{src/av9/p91.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 2/5}
+\lstinputlisting[firstline=28,lastline=45]{src/av9/p91.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 3/5}
+\lstinputlisting[firstline=47,lastline=66]{src/av9/p91.cpp}
+\end{frame}
+
+\begin{frame}{Problem 1}{Part 2}
+
+Create a class \texttt{CashRegister} where customers can pay with cards or in
+cash. For each cash register there are two amounts:
+
+\begin{itemize}
+  \item amount payed in cash
+  \item amount payed with cards
+\end{itemize}
+
+and each object of this class has the date when it is created.
+
+Implement the following two functions in this class:
+
+\begin{itemize}
+  \item \texttt{pay(double)} - for paying in cash
+  \item \texttt{pay(double, PaymentCard)} - for paying with card
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 4/5}
+\lstinputlisting[firstline=68,lastline=96]{src/av9/p91.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Solution 5/5}
+\lstinputlisting[firstline=98]{src/av9/p91.cpp}
+\end{frame}
+
+
+\begin{frame}{Problem 2}
+\begin{scriptsize}
+Part from the products from one store after the new policy of the store must
+have some discount. To acomplish this the store system must model abstract class
+Discount. This class keeps info about the exchange rates for euros and dollars
+in denars and each class deriving from it must implement the following methods:
+
+\begin{itemize}
+  \item \texttt{float discount\_price()}
+  \item  \texttt{float price()}
+  \item \texttt{void print\_rule()}
+\end{itemize}
+
+For each Product the store keeps info about the name and the price. Products are
+divided in few types: FoodProduct, Drinks and Cosmetics. According to the new
+policy, food does not have discount. Alchohol drinks more expensive than 20
+euros have discount of 5\%, and alchohol free drinks from the brand CocaCola
+have discount of 10\%. All cosmetic products have discount of 12\%, and those
+more expensive than 20 dollars have discount of 14\%.
+
+\end{scriptsize}
+ 
+\end{frame}
+
+\begin{frame}{Problem 2}{Part 2}
+\begin{scriptsize}
+Compute the total price of all products with the discount applied.
+
+The price of the products should not be negative. Throw an exception in the
+constructor of the class Product, if the data is not ok.
+
+Try different strategies of handling the exception:
+\begin{itemize}
+  \item Catch the exception in the constructor, so the price is set to 0
+  \item Catch the exception in the main function, where we instantiate objects
+  of classes derived from Product.
+\end{itemize}
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile,shrink=0.9]{Problem 2}{Solution 1/5}
+\lstinputlisting[lastline=36]{src/av9/p92.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 2/5}
+\lstinputlisting[firstline=37,lastline=59]{src/av9/p92.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 3/5}
+\lstinputlisting[firstline=61,lastline=78]{src/av9/p92.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 2}{Solution 4/5}
+\lstinputlisting[firstline=80,lastline=104]{src/av9/p92.cpp}
+\end{frame}
+
+\begin{frame}[fragile,shrink=0.9]{Problem 2}{Solution 5/5}
+\lstinputlisting[firstline=106]{src/av9/p92.cpp}
+\end{frame}

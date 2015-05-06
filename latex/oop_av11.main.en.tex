@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Virtual destructor}{When and why we need virtual
+destructor?}
+\lstinputlisting{src/av11/e111.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Virtual destructor}{When and why we need virtual
+destructor?}
+\lstinputlisting{src/av11/e112.cpp}
+\end{frame}
+
+\begin{frame}{Problem 1/2}
+\begin{scriptsize}
+Create a hierarchy of classes that represent music and painting work. 
+For each art work we have:
+\begin{itemize}
+  \item year (int)
+  \item author (dynamically allocated char array)
+  \item price (float) - should not be negative (Exception)
+\end{itemize}
+For each music work we have additionally the genre (char array), and for each
+painting work we have additionally the technique (char array) and percent of
+damage (int).
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}{Problem 2/2}
+\begin{scriptsize}
+For each object of the classes should be implemented the following methods:
+\begin{itemize}
+  \item \texttt{float price()}
+  \begin{itemize}
+    \begin{scriptsize}
+    \item the initial price of the music work is increased for x\% if it dates
+    before the 17th century. The value x can be changed but it's save for all
+    objects.
+    \item the initial price of the painting work is decreased according to the
+    damage percent.
+    \end{scriptsize}
+   \end{itemize}
+   \item operator $>$ - compares by their price
+   \item opearotr $<<$ - outputs the author, year and price
+\end{itemize}
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1}{Overloading function template 1/2}
+\lstinputlisting[lastline=18]{src/av10/p103.cpp}
+\end{frame}
+
+\begin{frame}{Problem 2}{Function template}
+\begin{scriptsize}
+Write a function templates:
+\begin{itemize}
+  \item that will merge two arrays of same type
+  \item that will print elements from array
+  \item that will create a new array which is subarray from the original,
+  defined with start and end.
+\end{itemize}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}{Problem 3}
+\begin{scriptsize}
+Model a class Bicycle. For each bicycle we have model name, mass and diameter of
+the wheel (inches).
+
+In bicycle competitions there are three types of races: road races, mountain
+races and hybrid races. Dependant of the race type there are also three types of
+bicycles. Bicycles driven on road have extra info about the width of the tyres,
+mountain bicycles have number of suspension systems. Create a class hierarchy.
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}{Problem 3}{Exceptions}
+\begin{itemize}
+  \item diameter of the wheel is in range (15 - 29)
+  \item when user tries to create object with invalid value, an object with
+  fixed diameter 21 should be created.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problem 3}{Polymorphism}
+In each class implment a function \texttt{float getRangCoefficient()} that
+returns the coefficient of ranging the bicycle.
+
+\begin{itemize}
+  \item for road bicycles $(2.5 * width) * 2 + diameter * 0.2$
+  \item for mountain bicycles $number\_of\_suspensions + (27 - diameter) * 0.8$
+  \item for hybrid is the minimum of the road and mountain bicycles
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problem 3}{Static function}
+In the class bicycle define a field with MAX allowed mass for competition. This
+information is defined by the bicycle federation and it's same for all bicycles.
+There should be a function that will check if bicycle can compete with
+definition:
+
+\texttt{bool canCompete(Bicycle \&b)}
+\end{frame}
+
+\begin{frame}{Problem 3}{Composition}
+Define a class \texttt{Competitor} that has info for name and pointer to
+dynamically allocated bicycle he/she uses in competitions.
+\end{frame}
+
+\begin{frame}{Problem 3}{Global function}
+Define a global function for printing info of competitors by categories and
+sorted in increasing order by their coeffitient. This defines their starting
+position. For each competitor print the starting position, name and model of
+bicycle and rang coeffitient.
+\end{frame}
+
+\begin{frame}{Problem 3}{Main function}
+In the main function read data for all competitors of a bicycle race in Skopje.
+Then print the starting positions of the competitors (only those who can
+compete) with a maximum allowed mass of 15kg for bicycle.
+
+\end{frame}
