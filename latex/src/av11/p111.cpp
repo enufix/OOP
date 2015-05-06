@@ -69,7 +69,6 @@ public:
 	}
 };
 
-
 class MusicWork : public ArtWork {
 private:
 	char genre[100];
@@ -111,4 +110,3 @@ int main() {
 	delete pw;
 	return 0;
 }
-

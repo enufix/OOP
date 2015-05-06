@@ -2,7 +2,7 @@
 using namespace std;
 template<typename T>
 T abs(T value) {
-    T result; // result of type Т
+    T result;
     result = (value >= 0) ? value : -value;
     return result;
 }
