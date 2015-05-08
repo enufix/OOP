@@ -43,7 +43,7 @@ public:
 class Multiplication : public BinaryExpression {
 public:
     Multiplication(Expression *left, Expression *right) :
-    BinaryExpression(left, right){}
+        BinaryExpression(left, right) {}
 
     double eval() {
         return left->eval() * right->eval();
@@ -60,7 +60,7 @@ public:
 class Addition : public BinaryExpression {
 public:
     Addition(Expression *left, Expression *right) :
-    BinaryExpression(left, right){}
+        BinaryExpression(left, right) {}
 
     double eval() {
         return left->eval() + right->eval();
@@ -77,7 +77,7 @@ public:
 class Substraction : public BinaryExpression {
 public:
     Substraction(Expression *left, Expression *right) :
-    BinaryExpression(left, right){}
+        BinaryExpression(left, right) {}
 
     double eval() {
         return left->eval() - right->eval();
@@ -94,11 +94,11 @@ public:
 class Division : public BinaryExpression {
 public:
     Division(Expression *left, Expression *right) :
-    BinaryExpression(left, right){}
+        BinaryExpression(left, right) {}
 
     double eval() {
         double r = right->eval();
-        if(r == 0) throw 1;
+        if (r == 0) throw 1;
         return left->eval() / right->eval();
     }
 
@@ -132,10 +132,10 @@ int main() {
     );
     e2->print();
     cout << endl;
-    try{
+    try {
         cout << "Result: " << e2->eval() << endl;
-    } catch(int ex) {
-        if(ex == 1) {
+    } catch (int ex) {
+        if (ex == 1) {
             cout << "Division by zero" << endl;
         }
     }

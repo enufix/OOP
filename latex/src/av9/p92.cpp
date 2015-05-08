@@ -18,14 +18,15 @@ protected:
     float price;
 public:
     Product(const char *name = "", const float price = 0) {
-        try {
-            if (price < 0) throw 1;
+        /*try {*/
+            if (price < 0) throw WrongPriceException();
+            if(strlen(name) <= 3) throw ShortNameException();
             strcpy(this->name, name);
             this->price = price;
-        } catch (int) {
+        /*} catch (int) {
             cout << "Wrong price. Exception is thrown!" << endl;
             this->price = 0.0;
-        }
+        }*/
     }
     float getPrice() {
         return price;
@@ -113,14 +114,21 @@ float total_discount(Discount **d, int n) {
     }
     return discount;
 }
+class WrongPriceException : public Exception {
 
+};
+class ShortNameException : public Exception {
+
+};
 int main() {
     int n = 7;
     Discount **d = new Discount*[n];
     try {
     	d[0] = new FoodProduct("Bread", -30);
-    } catch(int) {
+    } catch(WrongPriceException e) {
     	cout << "Negative price in constructor" << endl;
+    } catch(ShortNameException e) {
+        cout << "Short name" << endl;
     }
     d[1] = new Drinks("Whiskey", 1350, "Jack Daniel's", true);
     d[2] = new FoodProduct("Cheese", 390, 105);

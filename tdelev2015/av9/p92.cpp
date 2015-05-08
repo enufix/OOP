@@ -1,6 +1,13 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+class WrongPriceException : public exception {
+
+};
+class ShortNameException : public exception {
+
+};
+
 class Discount {
 public:
     static float euro;
@@ -8,6 +15,9 @@ public:
     virtual float discount_price() = 0;
     virtual float price() = 0;
     virtual void print_rule() = 0;
+    virtual ~Discount() {
+
+    }
 };
 float Discount::euro = 61.7;
 float Discount::dollar = 44.5;
@@ -18,20 +28,24 @@ protected:
     float price;
 public:
     Product(const char *name = "", const float price = 0) {
-        try {
-            if (price < 0) throw 1;
+        /*try {*/
+            if (price < 0) throw WrongPriceException();
+            if(strlen(name) <= 3) throw ShortNameException();
             strcpy(this->name, name);
             this->price = price;
-        } catch (int) {
+        /*} catch (int) {
             cout << "Wrong price. Exception is thrown!" << endl;
             this->price = 0.0;
-        }
+        }*/
     }
     float getPrice() {
         return price;
     }
     void print() {
         cout << "Product{ name=" << name << ", price=" << price << "}" << endl;
+    }
+    virtual ~Product() {
+
     }
 };
 class Cosmetics : public Product, public Discount {
@@ -118,9 +132,11 @@ int main() {
     int n = 7;
     Discount **d = new Discount*[n];
     try {
-    	d[0] = new FoodProduct("Bread", -30);
-    } catch(int) {
-    	cout << "Negative price in constructor" << endl;
+        d[0] = new FoodProduct("ab", -30);
+    } catch(WrongPriceException e) {
+        cout << "Negative price in constructor" << endl;
+    } catch(ShortNameException e) {
+        cout << "Short name" << endl;
     }
     d[1] = new Drinks("Whiskey", 1350, "Jack Daniel's", true);
     d[2] = new FoodProduct("Cheese", 390, 105);
@@ -129,7 +145,7 @@ int main() {
     d[5] = new Drinks("Soda", 50, "Coca-Cola", false);
     d[6] = new Cosmetics("Parfume", 3500, 50);
     cout << "Total price is: " << total_discount(d, n) << endl;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 1; i < n; ++i) {
         delete d[i];
     }
     delete [] d;

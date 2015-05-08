@@ -22,6 +22,15 @@ void a() {
 }
 
 int main() {
-    a();
+    try {
+        a();
+    }
+    catch (int x) {
+        cout << "Exception: " << x << endl;
+        if(x == 1) {
+            cout << "Division by zero" << endl;
+        }
+    }
     return 0;
 }
+
