@@ -1,0 +1,11 @@
+10
+petko petkovski 65454 50 56 32 30
+mitko mitkov 435435 10 67 23 43
+x y 4234 50 12 32 30
+a b 5435 50 12 67 30
+z c 65454 50 12 32 30
+db bd 65454 50 14 87 30
+ab cd 65454 50 56 32 30
+slobodanka slobodna 65454 20 12 32 30
+ivan ivanov 65454 50 12 32 30
+slave jovanov 65454 50 12 32 30
