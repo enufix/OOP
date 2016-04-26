@@ -3,7 +3,7 @@
 using namespace std;
 
 class Product {
-protected:
+public:
     char name[100];
     float price;
 public:
@@ -11,12 +11,10 @@ public:
         strcpy(name, n);
         price = p;
     }
-    bool operator==(const Product &p) {
-        return price == p.price && 
-        strcmp(name, p.name) == 0
-        && strcmp(description(), p.description()) == 0;
-    }
     virtual char* description() const = 0;
+    bool operator==(const Product &p) {
+        return strcmp(description(), p.description()) == 0;
+    }
     virtual ~Product() {
         cout << "PRoduct destructor" << endl;
     }
@@ -48,6 +46,10 @@ float savings(Discount **d, int n) {
     return total;
 }
 
+class Trip : public Discount {
+
+};
+
 class Deodorant : public Product, public Discount {
 public:
     Deodorant(const char *name = "", float price = 0) :
@@ -69,9 +71,14 @@ public:
         return price;
     }
 
-    /*virtual ~Deodorant() {
+    bool equal(const Product *p) const {
+        return price == p->price && 
+        strcmp(name, p->name) == 0;
+    }
+
+    virtual ~Deodorant() {
         cout << "Deodorant destructor" << endl;
-    }*/
+    }
 };
 
 class Juice : public Product, public Discount {
@@ -81,7 +88,7 @@ public:
     }
     char* description() const {
         cout << "This is a Juice" << endl;
-        return "This is Juice";
+        return "this is juice";
     }
 
     float discount() const {
@@ -95,6 +102,27 @@ public:
     float originalPrice() const {
         return price;
     }
+
+    bool equal(const Product *p) const {
+        return price == p->price && 
+        strcmp(name, p->name) == 0;
+    }
+};
+
+class Fruit : public Product {
+public:
+    Fruit(const char* name, float price) : Product(name, price) {
+
+    }
+    char* description() const {
+        cout << "This is fruit" << endl;
+        return "this is fruit";
+    }
+
+    bool equal(const Product *p) const {
+        return price == p->price && 
+        strcmp(name, p->name) == 0;
+    }
 };
 
 int main() {
@@ -102,12 +130,20 @@ int main() {
     d[0] = new Deodorant("Dove", 200);
     d[1] = new Deodorant("Nivea", 187);
     d[2] = new Juice("Some", 100);
+    Juice y("Orange juice", 50);
+    Product *x = new Fruit("Banana", 50);
     cout << "Total discount: " << totalDiscount(d, 3) << endl;
     cout << "Total savings: " << savings(d, 2) << endl;
+    if(*x == y) {
+        cout << "Banana and Coca Cola product are equal" << endl;
+    } else {
+        cout << "not equal" << endl;
+    }
     delete d[0];
     delete d[1];
     delete d[2];
     delete [] d;
+    delete x;
     return 0;
 }
 

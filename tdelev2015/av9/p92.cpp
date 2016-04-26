@@ -29,10 +29,10 @@ protected:
 public:
     Product(const char *name = "", const float price = 0) {
         /*try {*/
-            if (price < 0) throw WrongPriceException();
-            if(strlen(name) <= 3) throw ShortNameException();
-            strcpy(this->name, name);
-            this->price = price;
+        if (price < 0) throw WrongPriceException();
+        if (strlen(name) <= 3) throw ShortNameException();
+        strcpy(this->name, name);
+        this->price = price;
         /*} catch (int) {
             cout << "Wrong price. Exception is thrown!" << endl;
             this->price = 0.0;
@@ -129,22 +129,32 @@ float total_discount(Discount **d, int n) {
 }
 
 int main() {
-    int n = 7;
+    int n = 1;
     Discount **d = new Discount*[n];
-    try {
-        d[0] = new FoodProduct("ab", -30);
-    } catch(WrongPriceException e) {
-        cout << "Negative price in constructor" << endl;
-    } catch(ShortNameException e) {
-        cout << "Short name" << endl;
+    cout << "Enter name: ";
+    char name[100];
+    cin >> name;
+    cout << "Enter price: ";
+    float price;
+    cin >> price;
+    for (int i = 0; i < n; ++i) {
+        try {
+            d[i] = new FoodProduct(name, price);
+        } catch (WrongPriceException e) {
+            cout << "Negative price in constructor" << endl;
+        } catch (ShortNameException e) {
+            cout << "Short name" << endl;
+        }
     }
-    d[1] = new Drinks("Whiskey", 1350, "Jack Daniel's", true);
+    cout << "Products are created" << endl;
+
+    /*d[1] = new Drinks("Whiskey", 1350, "Jack Daniel's", true);
     d[2] = new FoodProduct("Cheese", 390, 105);
     d[3] = new Drinks("Vodka", 850, "Finlandia", true);
     d[4] = new Cosmetics("Cream", 72, 100);
     d[5] = new Drinks("Soda", 50, "Coca-Cola", false);
-    d[6] = new Cosmetics("Parfume", 3500, 50);
-    cout << "Total price is: " << total_discount(d, n) << endl;
+    d[6] = new Cosmetics("Parfume", 3500, 50);*/
+    //cout << "Total price is: " << total_discount(d, n) << endl;
     for (int i = 1; i < n; ++i) {
         delete d[i];
     }
