@@ -27,11 +27,11 @@ public:
 };
 
 int main() {
-    Complex<float> c1(5, 15);
+    Complex<int> c1(5, 15);
     cout << c1 << endl;
     Complex<float> c2(12.1, -13.5);
     cout << c2 << endl;
-    Complex<float> c3 = c1 + c2;
-    cout << c3 << endl;
+    /*Complex<float> c3 = c1 + c2;
+    cout << c3 << endl;*/
     return 0;
 }

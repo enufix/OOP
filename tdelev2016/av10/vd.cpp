@@ -39,34 +39,11 @@ public:
         delete [] f;
     }
 };
-class A {
-    int x[5];
-public:
-    A() {
-        for (int i = 0; i < 5; ++i) {
-            x[i] = 15;
-        }
-    }
-    void print() {
-        for (int i = 0; i < 5; ++i) {
-            cout << x[i] << endl;
-        }   
-    }
-    void change() {
-        x[0] = 50;
-    }
-};
 
 int main() {
-    /*float x[] = {1.2, 15, 13};
+    float x[] = {1.2, 15, 13};
     Base *b = new D(15, x, 3);
     cout << "SUM: " << b->sum() << endl;
-    delete b;*/
-    A a;
-    A b;
-    b = a;
-    a.change();
-    a.print();
-    b.print();
+    delete b;
     return 0;
 }
