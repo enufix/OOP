@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Интервју за работа}{Дали сакате да работите во некоја од следните
+компании?}
+\includegraphics[width=3cm]{images/google}\hfill
+\includegraphics[width=3cm]{images/microsoft}\\
+\includegraphics[width=3cm]{images/amazon}\hfill
+\includegraphics[width=3cm]{images/apple}
+\end{frame}
+
+\begin{frame}{Прашање на интервју}{The classic "eval"
+interview question}
+\begin{itemize}
+  \item Прв пат поставено на интервју во Амазон
+  \item Прашањето е доста обемно и содржи многу важни вештини со кои треба да ги
+  поседува еден квалитетен софтверски инженер:
+  \begin{itemize}
+  \item \textbf{ООП дизајн}
+  \item \textbf{рекурзија}
+  \item бинарни дрва
+  \item \textbf{полиморфизам}
+  \item \ldots
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Прашањето}{1/2}
+Во одреден момент, кандидатот конечно сфаќа дека секоја аритметичка операција
+може да се претстави како бинарно дрво, ако препоставиме дека ги користиме само
+основните бинарни оператори како $+, -, *, /$. Листовите се броеви, а
+сите внатрешни јазли се оператори. Евалуацијата на изразот значи изминување на ова
+дрво. 
+
+Не го разбирате ова? Не е важно\ldots
+
+Ова е сеуште интересен проблем.
+\end{frame}
+
+\begin{frame}{Прашањето}{2/2}
+Првиот дел од прашањето е како од стринг кој претставува некаков аритметички
+израз (пр. ``5 + (3 * 2)'') го трансформираме во дрво за изразот.
+
+Вториот дел е: да речеме дека ова е проект за двајца луѓе и вашиот партнер е
+задолжен за трансформацијата на изразот во дрво, а на вас останува лесниот дел.
+Треба да напишете соодветни класи кои ќе ги употреби вашиот партнер за да ја
+заврши неговата задача.
+
+\end{frame}
+
+\begin{frame}{Одговорот}{Најдоброто решение користи полиморфизам!}
+Да се обидеме да одговориме на следните прашања?
+\begin{itemize}
+  \item Кои се заедничките карактеристики или однесување на различни изрази?
+  \item Кои се разликите?
+  \item Кои методи/полиња треба да се наследат, а кои да се имплементираат
+  посебно?
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Expression abstract class (interface)}{Решение 1/4}
+\lstinputlisting[firstline=4,lastline=12]{src/avx/eval.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{BinaryExpression abstract class}{Решение 2/4}
+\lstinputlisting[firstline=14,lastline=28]{src/avx/eval.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{ValueNode class}{Решение 3/4}
+\lstinputlisting[firstline=30,lastline=45]{src/avx/eval.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{AddExpression class}{Решение 4/4}
+\lstinputlisting[firstline=47,lastline=61]{src/avx/eval.cpp}
+\end{frame}
+
+\begin{frame}[fragile]{Тест}
+\lstinputlisting[firstline=79]{src/avx/eval.cpp}
+\end{frame}
+
